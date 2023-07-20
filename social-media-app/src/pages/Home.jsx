@@ -11,13 +11,13 @@ import ProfileCard from "../components/profile/ProfileCard";
 
 function Home(){
     
-    const posts = useSWR("/api/post/", fetcher, {
+    const posts = useSWR("/post/", fetcher, {
         refreshInterval: 10000,
     });
 
     const user = getUser();
 
-    const profiles = useSWR("/api/user/?limit=5", fetcher);
+    const profiles = useSWR("/user/?limit=5", fetcher);
 
     if (!user) {
         return <div>Loading!</div>

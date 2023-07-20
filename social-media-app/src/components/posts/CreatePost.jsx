@@ -35,7 +35,7 @@ function CreatePost(props){
         };
 
         axiosService
-            .post("/api/post/", data)
+            .post("/post/", data)
             .then(()=> {
                 handleClose();
                 setToaster({

@@ -10,9 +10,9 @@ import { Row, Col } from "react-bootstrap";
 function Profile() {
     const { profileId } = useParams();
 
-    const user = useSWR(`/api/user/${profileId}/`, fetcher);
+    const user = useSWR(`/user/${profileId}/`, fetcher);
 
-    const posts = useSWR(`/api/post/?author__public_id=${profileId}`, fetcher, {
+    const posts = useSWR(`/post/?author__public_id=${profileId}`, fetcher, {
         refreshInterval: 20000,
     });
 

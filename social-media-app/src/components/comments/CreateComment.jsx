@@ -35,7 +35,7 @@ function CreateComment(props) {
         };
 
         axiosService
-        .post(`/api/post/${postId}/comment/`, data)
+        .post(`/post/${postId}/comment/`, data)
         .then(() => {
             setForm({ ...form, body: "" });
             setToaster({

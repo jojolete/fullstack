@@ -36,7 +36,7 @@ function UpdateComment(props) {
         };
 
         axiosService
-        .put(`/api/post/${postId}/comment/${comment.id}/`, data)
+        .put(`/post/${postId}/comment/${comment.id}/`, data)
         .then(() => {
             handleClose();
             setToaster({

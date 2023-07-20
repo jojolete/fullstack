@@ -9,7 +9,7 @@ import { Row, Col } from "react-bootstrap";
 function EditProfile() {
     const { profileId } = useParams();
 
-    const profile = useSWR(`/api/user/${profileId}/`, fetcher);
+    const profile = useSWR(`/user/${profileId}/`, fetcher);
 
     return (
         <Layout hasNavigationBack>
