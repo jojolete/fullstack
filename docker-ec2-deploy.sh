@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TARGET='main'
+TARGET='master'
 
 cd ~/api || exit
 
@@ -28,7 +28,7 @@ fi
 
 # If there are new changes, we pull these changes.
 
-git pull origin main;
+git pull origin master;
 
 # We can now build and start the containers
 
