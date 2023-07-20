@@ -25,8 +25,8 @@ services:
     command: >
       sh -c "python manage.py migrate --no-input && gunicorn CoreRoot.wsgi:application --bind 0.0.0.0:8000"
     volumes:
-     - .:/app
-     - uploads_volume:/app/uploads
+     - .:/fullstack
+     - uploads_volume:/fullstack/uploads
     depends_on:
      - db
      - redis
