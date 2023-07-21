@@ -20,13 +20,13 @@ jobs:
         run: echo "REACT_APP_API_URL=${{ secrets.API_URL }}" >> .env
 
       - name: Install dependencies
-        run: pnpm install
+        run: yarn install
 
       - name: Running tests
-        run: pnpm test
+        run: yarn test
 
       - name: Building project
-        run: pnpm build
+        run: yarn build
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
