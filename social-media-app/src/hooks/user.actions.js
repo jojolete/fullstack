@@ -18,13 +18,8 @@ function useUserActions(){
         return axios
                     .post(`${baseURL}/auth/login/`, data)
                     .then((res)=> {
-                            let profileId = res.data.user.id;
-                            axios
-                                .get(`${baseURL}/user/${profileId}`, data)
-                                .then((res) =>{
-                                    setUserData(res.data);
-                                    navigate("/");
-                                });
+                            setUserData(res.data);
+                            navigate("/");
                         });
     }
 
