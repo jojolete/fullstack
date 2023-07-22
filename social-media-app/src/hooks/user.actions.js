@@ -18,12 +18,15 @@ function useUserActions(){
         return axios
                     .post(`${baseURL}/auth/login/`, data)
                     .then((res)=> {
+                        console.log(res);
                         setUserData(res.data);
                         axiosService
                         .get(`${baseURL}/user/${res.data.user.id}`)
                         .then((res) => {
+                            console.log(res);
                             const auth = JSON.parse(localStorage.getItem("auth")) || null;
                             if (auth) {
+                                console.log(auth);
                                 let newAvatar = res.data.user.avatar
                                 auth.user.avatar = newAvatar;
                                 localStorage.setItem("auth", JSON.stringify({
