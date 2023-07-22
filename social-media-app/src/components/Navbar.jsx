@@ -11,7 +11,7 @@ function Navigationbar(){
     };
     
     const user = getUser();
-
+    console.log(user);
     return(
         <Navbar bg="primary" variant="dark">
             <Container>
