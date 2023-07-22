@@ -32,12 +32,12 @@ function useUserActions(){
                                         user: auth.user
                                         })
                                     );
-                                    console.log(localStorage.getItem("auth"));
                                 }
                             }).catch((err) =>{
                                 console.log(err);
                             })
                         console.log(localStorage.getItem("auth"));
+
                         navigate("/");
                     });
     }
