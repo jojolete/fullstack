@@ -36,7 +36,6 @@ function useUserActions(){
                             }).catch((err) =>{
                                 console.log(err);
                             })
-                        console.log(localStorage.getItem("auth"));
 
                         navigate("/");
                     });
