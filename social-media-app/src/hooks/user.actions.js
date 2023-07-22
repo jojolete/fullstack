@@ -28,7 +28,9 @@ function useUserActions(){
                                 auth.user.avatar = newAvatar;
                                 console.log(auth);
                                 localStorage.setItem("auth", JSON.stringify({
-                                    auth
+                                    refresh: auth.refresh,
+                                    access: auth.access,
+                                    user: auth.user
                                     })
                                 );
                             }
