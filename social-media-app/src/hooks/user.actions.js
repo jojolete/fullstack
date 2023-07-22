@@ -20,24 +20,25 @@ function useUserActions(){
                     .then((res)=> {
                         setUserData(res.data);
                         axiosService
-                        .get(`${baseURL}/user/${res.data.user.id}`)
-                        .then((res) => {
-                            const auth = JSON.parse(localStorage.getItem("auth")) || null;
-                            if (auth) {
-                                let newAvatar = res.data.avatar
-                                auth.user.avatar = newAvatar;
-                                localStorage.setItem("auth", JSON.stringify({
-                                    refresh: auth.refresh,
-                                    access: auth.access,
-                                    user: auth.user
-                                    })
-                                );
-                                console.log(localStorage.getItem("auth"));
-                            }
-                        }).catch((err) =>{
-                            console.log(err);
-                        })
-                    navigate("/");
+                            .get(`${baseURL}/user/${res.data.user.id}`)
+                            .then((res) => {
+                                const auth = JSON.parse(localStorage.getItem("auth")) || null;
+                                if (auth) {
+                                    let newAvatar = res.data.avatar
+                                    auth.user.avatar = newAvatar;
+                                    localStorage.setItem("auth", JSON.stringify({
+                                        refresh: auth.refresh,
+                                        access: auth.access,
+                                        user: auth.user
+                                        })
+                                    );
+                                    console.log(localStorage.getItem("auth"));
+                                }
+                            }).catch((err) =>{
+                                console.log(err);
+                            })
+                        console.log(localStorage.getItem("auth"));
+                        navigate("/");
                     });
     }
 

@@ -16,7 +16,7 @@ function Home(){
     });
 
     const user = getUser();
-    console.log(`User from home ${user}`);
+    console.log(user);
 
     const profiles = useSWR("/user/?limit=5", fetcher);
 
