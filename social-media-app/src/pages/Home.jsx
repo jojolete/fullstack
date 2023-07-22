@@ -15,9 +15,11 @@ function Home(){
         refreshInterval: 10000,
     });
 
-    const user_session = getUser();
-    const user = useSWR(`/user/${user_session.id}`, fetcher);
-
+    const authObject = getUser();
+    const user = useSWR(`/user/${authObject.user.id}`, fetcher);
+    console.log(user);
+    console.log(authObject);
+    
     const profiles = useSWR("/user/?limit=5", fetcher);
 
     if (!user) {
