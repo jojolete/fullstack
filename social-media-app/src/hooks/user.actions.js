@@ -27,7 +27,7 @@ function useUserActions(){
                             const auth = JSON.parse(localStorage.getItem("auth")) || null;
                             if (auth) {
                                 console.log(auth);
-                                let newAvatar = res.data.user.avatar
+                                let newAvatar = res.data.avatar
                                 auth.user.avatar = newAvatar;
                                 localStorage.setItem("auth", JSON.stringify({
                                     auth
