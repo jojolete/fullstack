@@ -26,13 +26,13 @@ function useUserActions(){
                             if (auth) {
                                 let newAvatar = res.data.avatar
                                 auth.user.avatar = newAvatar;
-                                console.log(auth);
                                 localStorage.setItem("auth", JSON.stringify({
                                     refresh: auth.refresh,
                                     access: auth.access,
                                     user: auth.user
                                     })
                                 );
+                                console.log(localStorage.getItem("auth"));
                             }
                         }).catch((err) =>{
                             console.log(err);
