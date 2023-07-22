@@ -18,14 +18,13 @@ function useUserActions(){
         return axios
                     .post(`${baseURL}/auth/login/`, data)
                     .then((res)=> {
-                            axiosService
-                                .get(`${baseURL}/user/${res.user.id}`)
-                                .then((res) => {
-                                    setUserData(res.data);
-                                    navigate("/");
+                        axiosService
+                        .get(`${baseURL}/user/${res.data.user.id}`)
+                        .then((res) => {
+                            setUserData(res.data);
+                            navigate("/");
 
-                                })
-                            
+                        })
                         });
     }
 
