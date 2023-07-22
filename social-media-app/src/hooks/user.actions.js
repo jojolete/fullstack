@@ -18,14 +18,24 @@ function useUserActions(){
         return axios
                     .post(`${baseURL}/auth/login/`, data)
                     .then((res)=> {
+                        setUserData(res.data);
                         axiosService
                         .get(`${baseURL}/user/${res.data.user.id}`)
                         .then((res) => {
-                            setUserData(res.data);
+                            const auth = JSON.parse(localStorage.getItem("auth")) || null;
+                            if (auth) {
+                                let newAvatar = res.data.user.avatar
+                                auth.user.avatar = newAvatar;
+                                localStorage.setItem("auth", JSON.stringify({
+                                    auth
+                                    })
+                                );
+                            }
                             navigate("/");
-
+                        }).catch((err) =>{
+                            console.log(err);
                         })
-                        });
+                    });
     }
 
     function logout(){
