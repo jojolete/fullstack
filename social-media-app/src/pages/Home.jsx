@@ -4,7 +4,7 @@ import {Row, Col, Image} from "react-bootstrap";
 //import { randomAvatar } from "../utils";
 import useSWR from "swr";
 import { fetcher} from '../helpers/axios';
-import { getUser } from "../hooks/user.actions";
+import { getUser} from "../hooks/user.actions";
 import {Post} from "../components/posts";
 import CreatePost from "../components/posts/CreatePost";
 import ProfileCard from "../components/profile/ProfileCard";
@@ -15,7 +15,8 @@ function Home(){
         refreshInterval: 10000,
     });
 
-    const user = getUser();
+    const user_session = getUser();
+    const user = useSWR(`/user/${user_session.id}`, fetcher);
 
     const profiles = useSWR("/user/?limit=5", fetcher);
 
