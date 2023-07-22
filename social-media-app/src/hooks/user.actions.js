@@ -26,6 +26,7 @@ function useUserActions(){
                             if (auth) {
                                 let newAvatar = res.data.avatar
                                 auth.user.avatar = newAvatar;
+                                console.log(auth);
                                 localStorage.setItem("auth", JSON.stringify({
                                     auth
                                     })
