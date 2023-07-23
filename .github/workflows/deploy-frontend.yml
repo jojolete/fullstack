@@ -18,7 +18,7 @@ jobs:
 
       - name: Injecting environment variables
         run:  echo "REACT_APP_API_URL=${{ secrets.API_URL }}" >> .env
-              each "REACT_APP_MEDIA_URL=${{ secrets.API_MEDIA_URL}}" >> .env
+              echo "REACT_APP_MEDIA_URL=${{ secrets.API_MEDIA_URL}}" >> .env
 
       - name: Install dependencies
         run: yarn install
