@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import RegistrationForm from "../components/authentication/RegistrationForm";
-//
+
 function Registration() {
     return (
       <div className="container">
