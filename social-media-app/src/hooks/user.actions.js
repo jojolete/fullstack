@@ -5,7 +5,8 @@ import axios from "axios";
 
 function useUserActions(){ 
     const navigate = useNavigate();
-    const baseURL = process.env.REACT_APP_API_URL
+    const baseURL = process.env.REACT_APP_API_URL;
+    const baseMediaURL = process.env.REACT_APP_MEDIA_URL;
 
     return { 
         login,
@@ -18,26 +19,17 @@ function useUserActions(){
         return axios
                     .post(`${baseURL}/auth/login/`, data)
                     .then((res)=> {
+                        let newAvatar = `${baseMediaURL}${res.data.user.avatar}`;
+                        console.log(baseMediaURL);
+                        //console.log(newAvatar);
+                        res.data.user.avatar = newAvatar;
                         setUserData(res.data);
-                        axiosService
-                            .get(`${baseURL}/user/${res.data.user.id}`)
-                            .then((res) => {
-                                const auth = JSON.parse(localStorage.getItem("auth")) || null;
-                                if (auth) {
-                                    let newAvatar = res.data.avatar
-                                    auth.user.avatar = newAvatar;
-                                    localStorage.setItem("auth", JSON.stringify({
-                                        refresh: auth.refresh,
-                                        access: auth.access,
-                                        user: auth.user
-                                        })
-                                    );
-                                }
-                            }).catch((err) =>{
-                                console.log(err);
-                            })
-
                         navigate("/");
+
+                    })
+                    .then(()=> {
+                    }).catch((err)=>{
+                        console.log(err);
                     });
     }
 
